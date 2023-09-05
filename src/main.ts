@@ -1,89 +1,63 @@
-// 1. Sistema de Gerenciamento de Biblioteca:
+// Sistema de Museu Virtual:
 
-// Objetivo:
-// Desenvolver um sistema de gerenciamento de biblioteca onde os usuários podem adicionar, pesquisar e verificar informações sobre livros.
+// Crie classes para representar diferentes exposições em um museu virtual, abrangendo arte, história e ciência.
+// Use herança para representar diferentes categorias de exposições.
+// Implemente interfaces para permitir que os visitantes naveguem pelas exposições e aprendam mais sobre os itens exibidos.
+// Utilize polimorfismo para exibir informações detalhadas sobre cada item da exposição.
 
-// Conceitos de Programação Orientada a Objetos para aplicar:
+abstract class MuseumObject {
+    name: string;
+    id: number;
+};
 
-// Classes para representar livros e a biblioteca.
-// Encapsulamento para proteger informações dos livros.
-// Interfaces para definir métodos como adicionarLivro(), pesquisarLivro(), listarLivros() etc.
-// Uso de Módulos para organizar o código.
-// Tratamento de exceções para lidar com situações como a tentativa de adicionar um livro já existente na biblioteca. 
+interface InfosObject {
+    infosObject () : void;
+};
 
-class Book {
-    private title: string;
-    private author: string;
-    private year: number;
+interface Exhibition {
+    type:string;
 
-    constructor(title: string, author: string, year: number) {
-        this.title = title;
-        this.author = author;
-        this.year = year;
-    };
+    exhibitionSetup ():void;
+    exhibitionAssembly ():void;
+};
 
-    public getTitle(): string {
-        return this.title;
-    };
-    public setTitle(value: string) {
-        this.title = value;
-    };
-    public getAuthor(): string {
-        return this.author;
-    };
-    public setAuthor(value: string) {
-        this.author = value;
-    };
-    public getYear(): number {
-        return this.year;
-    };
-    public setYear(value: number) {
-        this.year = value;
+class HistoricalObject extends MuseumObject {
+
+};
+
+class ArtObject extends MuseumObject {
+    constructor (name:string, id:number, type:string) {
+        super();
+
     };
 };
 
-interface Infos {
-    getInfo(): void;
-}
+class HistoricalExhibition implements Exhibition {
+    type:string = "historical";
 
-class Section {
-
-}
-
-class Library{    
-}
-
-class TechnicalBook extends Book implements Infos {
-
-    area: string;
-
-    constructor(title: string, author: string, year: number, area: string) {
-        super(title, author, year);
-        this.area = area;
+    exhibitionSetup(): void {
+        
     };
 
-    getInfo(): void {
-        console.log(`Título: ${this.getTitle()} Autor: ${this.getAuthor()} Ano: ${this.getYear()} Area: ${this.area}`);
-    }
+    exhibitionAssembly(): void {
+        
+    };
 };
 
-class FictionBook extends Book implements Infos {
+class ArtExhibition implements Exhibition {
+    type: string = "art";
 
-    genre: string;
-
-    constructor(title: string, author: string, year: number, genre: string) {
-        super(title, author, year);
-        this.genre = genre;
+    exhibitionSetup(): void {
+        
     };
 
-    getInfo(): void {
-        console.log(`Título: ${this.getTitle()} Autor: ${this.getAuthor()} Ano: ${this.getYear()} Gênero: ${this.genre}`);
-    }
+    exhibitionAssembly(): void {
+        
+    };
 };
 
-const livroFiccao = new FictionBook("1984", "George Orwell", 1949, "Distopia");
-const livroTecnico = new TechnicalBook("Clean Code", "Robert C. Martin", 2008, "Programação");
+class Museum {
+    exhibitions: HistoricalExhibition[] || ArtExhibition[];
+    objects: HistoricalObject[] || ArtObject[];
 
-console.log(livroFiccao.getInfo());
-console.log(livroTecnico.getInfo());
-
+};
