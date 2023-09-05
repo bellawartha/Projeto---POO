@@ -16,27 +16,35 @@ interface InfosObject {
 
 interface Exhibition {
     type:string;
+    name:string;
 
     exhibitionSetup ():void;
     exhibitionAssembly ():void;
 };
 
 class HistoricalObject extends MuseumObject {
+    type: string;
     constructor (name:string, id:number, type:string) {
         super();
-
+        this.type = type;
     };
 };
 
 class ArtObject extends MuseumObject {
+    type: string;
     constructor (name:string, id:number, type:string) {
         super();
-
+        this.type = type;
     };
 };
 
 class HistoricalExhibition implements Exhibition {
     type:string = "historical";
+    name: string;
+
+    constructor (name:string) {
+        this.name = name;
+    };
 
     exhibitionSetup(): void {
         
@@ -49,6 +57,11 @@ class HistoricalExhibition implements Exhibition {
 
 class ArtExhibition implements Exhibition {
     type: string = "art";
+    name: string;
+
+    constructor (name:string) {
+        this.name = name;
+    }
 
     exhibitionSetup(): void {
         
@@ -62,5 +75,4 @@ class ArtExhibition implements Exhibition {
 class Museum {
     exhibitions: HistoricalExhibition[] | ArtExhibition[];
     objects: HistoricalObject[] | ArtObject[];
-
 };
