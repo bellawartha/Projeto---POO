@@ -22,7 +22,10 @@ interface Exhibition {
 };
 
 class HistoricalObject extends MuseumObject {
+    constructor (name:string, id:number, type:string) {
+        super();
 
+    };
 };
 
 class ArtObject extends MuseumObject {
@@ -57,7 +60,7 @@ class ArtExhibition implements Exhibition {
 };
 
 class Museum {
-    exhibitions: HistoricalExhibition[] || ArtExhibition[];
-    objects: HistoricalObject[] || ArtObject[];
+    exhibitions: HistoricalExhibition[] | ArtExhibition[];
+    objects: HistoricalObject[] | ArtObject[];
 
 };
