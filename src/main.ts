@@ -1,9 +1,3 @@
-// Sistema de Museu Virtual:
-
-// Crie classes para representar diferentes exposições em um museu virtual, abrangendo arte, história e ciência.
-// Use herança para representar diferentes categorias de exposições.
-// Implemente interfaces para permitir que os visitantes naveguem pelas exposições e aprendam mais sobre os itens exibidos.
-// Utilize polimorfismo para exibir informações detalhadas sobre cada item da exposição.
 
 // Arte
 let obra1 = new ArtObject('A Última Ceia', 1, 'Leonardo DaVinci', 1498, 'Afresco');
